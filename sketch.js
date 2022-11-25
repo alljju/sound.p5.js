@@ -1,12 +1,27 @@
-let musicFile;
+var song;
+var button;
 function setup()
 {
-soundFormats('mp3','ogg');
-musicFile = loadSound('DUDoom',loadMusic);
+    creatCanvas(200, 200);
+    song = loadSound('DUDoom.mp3',loaded);
+    button = createButton('play');
+    button.mousePressed(togglePlaying);
+    background(20);
 // musicFile.play();
 }
 
-function loadMusic()
+function togglePlaying()
 {
-musicFile.play(); //노래
+    if(!song.isPlaying()){
+        song.play();
+        song.setvolume(0.3);
+        button.html('pause');
+    }
+    else{
+        song.stop();
+        button.html('play');
+    }
+}
+function loaded(){
+    console.log('loaded');
 }
