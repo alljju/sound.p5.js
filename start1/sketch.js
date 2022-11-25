@@ -1,7 +1,12 @@
+let musicFile;
 function setup()
 {
-    createCanvas(400, 400);
-    line(-50, 120, 40, -60);
-line(40, -60, 10, 200);
+soundFormats('mp3','ogg');
+musicFile = loadSound('DUDoom',loadMusic);
+// musicFile.play();
+}
 
+function loadMusic()
+{
+musicFile.play(); //노래
 }
